@@ -2,21 +2,35 @@
 rm index.html
 curl -O http://tinysubversions.com/game/spelunky/index.html
 
-rm -r -f html5game
-mkdir html5game
+# Download game.html
+rm game.html
+curl -O http://tinysubversions.com/game/spelunky/game.html
 
-# Download Root Directory level files
-cd html5game
-curl -O http://tinysubversions.com/game/spelunky/html5game/spelunky.js
-curl -O http://tinysubversions.com/game/spelunky/html5game/loadingscreen.png
-curl -O http://tinysubversions.com/game/spelunky/html5game/spelunky_texture_0.png
-curl -O http://tinysubversions.com/game/spelunky/html5game/stats.txt
-curl -O http://tinysubversions.com/game/spelunky/html5game/settings.cfg
-curl -O http://tinysubversions.com/game/spelunky/html5game/keys.cfg
-curl -O http://tinysubversions.com/game/spelunky/html5game/gamepad.cfg
+# Style files
+rm -r -f css
+mkdir css
+cd css
+curl -O http://tinysubversions.com/game/spelunky/css/style.css
 cd ../
 
-# Download Particle files
+# Landing page graphics
+rm -r -f images
+mkdir images
+cd images
+curl -O http://tinysubversions.com/game/spelunky/images/bg_tile.png
+curl -O http://tinysubversions.com/game/spelunky/images/game_frame.png
+curl -O http://tinysubversions.com/game/spelunky/images/logo_2.png
+cd ../
+
+# Download Root Directory level files 
+rm -r -f html5game
+mkdir html5game
+cd html5game
+curl -O http://tinysubversions.com/game/spelunky/html5game/index.js
+curl -O http://tinysubversions.com/game/spelunky/html5game/index_texture_0.png
+cd ../
+
+# Download particle files
 mkdir html5game/particles
 cd html5game/particles
 curl -O http://tinysubversions.com/game/spelunky/html5game/particles/IDR_GIF2.png
@@ -35,6 +49,148 @@ curl -O http://tinysubversions.com/game/spelunky/html5game/particles/IDR_GIF14.p
 curl -O http://tinysubversions.com/game/spelunky/html5game/particles/IDR_GIF15.png
 cd ../../
 
-
-
-
+# Download audio files
+cd html5game
+curl -O http://tinysubversions.com/game/spelunky/html5game/mBoss.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mBoss.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCredits.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCredits.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mIce.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mIce.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mLush.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mLush.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTemple.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTemple.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTitle.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTitle.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mVictory.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mVictory.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xalien.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xalien.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xarrowtrap.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xarrowtrap.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbat.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbat.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbigjump.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbigjump.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xblink1.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xblink1.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xblink2.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xblink2.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xboing.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xboing.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbombready.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbombready.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbowpull.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbowpull.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbreak.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xbreak.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcavemandie.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcavemandie.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xchestopen.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xchestopen.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclick.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclick.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclimb1.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclimb1.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclimb2.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xclimb2.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcoin.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcoin.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcrunch.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xcrunch.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xdamsel.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xdamsel.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xdie.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xdie.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xexplosion.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xexplosion.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xflame.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xflame.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xfrog.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xfrog.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgem.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgem.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xghost.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xghost.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgiantspider.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgiantspider.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgspiderjump.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xgspiderjump.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xhit.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xhit.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xhurt.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xhurt.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xignite.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xignite.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xjetpack.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xjetpack.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xjump.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xjump.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xkiss.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xkiss.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xland.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xland.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xlaser.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xlaser.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xlasercharge.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xlasercharge.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xletsexplore.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xletsexplore.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xmattockbreak.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xmattockbreak.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xmonkey.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xmonkey.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpause.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpause.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpfall.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpfall.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpickup.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpickup.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpsychic.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpsychic.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpush.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xpush.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xshotgun.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xshotgun.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xslam.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xslam.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsmallexplode.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsmallexplode.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xspiderjump.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xspiderjump.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsplash.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsplash.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsteps.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xsteps.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xteleport.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xteleport.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xtfall.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xtfall.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthrow.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthrow.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthud.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthud.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthump.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xthump.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xtrap.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xtrap.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xwhip.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xwhip.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xyetiyell.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xyetiyell.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xzombie.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xzombie.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/xalert.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/xalert.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mIce.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mIce.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mCave.mp3
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTemple.ogg
+curl -O http://tinysubversions.com/game/spelunky/html5game/mTemple.mp3
+cd ../
