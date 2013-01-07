@@ -73,7 +73,7 @@ bm.init({
   
   // Use this appID for now. We are building our developer portal
   // back end as we speak.
-  bmAppId:"dfbc9769ef641e415aac8ee86224c9fa",
+  bmAppId:"e55990800510ceede3f930d93ae2f41d",
   
   // Location of the brassmonkey.swf the SDK depends on.
   // Coming soon this dependency will be removed for platforms
