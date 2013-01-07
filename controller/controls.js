@@ -75,7 +75,6 @@ bm.init({
   // back end as we speak.
   bmAppId:"e55990800510ceede3f930d93ae2f41d",
   
-  
   // Location of the brassmonkey.swf the SDK depends on.
   // Coming soon this dependency will be removed for platforms
   // like Mobile Safari that don't support flash.

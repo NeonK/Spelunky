@@ -251,6 +251,7 @@ function I()
 
 
 bm={version:"0.4.0"};
+bm.slotId=0;
 bm.MODE_GAMEPAD=0;	
 bm.MODE_KEYBOARD=1;		
 bm.MODE_NAVIGATION=2;		
@@ -295,7 +296,8 @@ bm.log=function(a){	if(bm.options.logging)bm.onLogInternal(a)};
 
 var D=false;
 
-bm.showSlotInternal=function(a){bm.onShowSlotInternal(C[(Math.max(1,a)-1)%C.length])};var o=[];
+bm.showSlotInternal=function(a){bm.slotId=a; bm.onShowSlotInternal(C[(Math.max(1,a)-1)%C.length])};
+var o=[];
 bm.getControllerSlot=function(a){for(var b=0;b<o.length;b++)if(o[b]==a)return b};
 bm.getControllerCount=function(){for(var a=0,b=0;b<o.length;b++)o[b]!==void 0&&a++;return a};
 bm.getControllers=function(){for(var a=[],b=0;b<o.length;b++)o[b]!==void 0&&a.push(o[b]);return a};var B={};
@@ -307,14 +309,17 @@ bm.onTouchesReceived=function(a){n.push(a)};
 bm.onTouchesReceivedInternal=function(a){for(var b=0;b<a.touches.length;b++)for(var e=a.touches[b],c=0;c<n.length;c++)n[c](e,a.deviceId)};
 bm.onSocketReady=function(){};
 bm.setNavMode=function(a){	document.getElementById("brassmonkey")&&document.getElementById("brassmonkey").SetNavMode!==void 0&& document.getElementById("brassmonkey").SetNavMode(typeof a==="undefined"?"":a);};
-
+bm.getBrassMonkey=function()
+{
+	return document.getElementById("brassmonkey");
+};
 bm.setRegistryVersion = function (maj,min) {
 	bm.getBrassMonkey().setRegistryVersion(maj,min);
 }
 
 bm.start=function()
 {
-	bm.getBrassMonkey().start();
+	document.getElementById("brassmonkey").start();
 }
 
 bm.loadDesign = function (uri,callback) {
@@ -382,11 +387,20 @@ bm.onDeviceAvailable=function(a)
 	bm.da.push(a);
 };
 
+
+bm.measurePing=function(deviceId){
+  return bm.getBrassMonkey().measurePing(deviceId);
+}
+
+bm.onDeviceEchoInternal=function(rtt,device){
+  //console.log("Round Trip Time ("+rtt+") Speed ("+Math.floor(rtt/2)+")");
+}
+
 bm.onDeviceAvailableInternal=function(a)
 {
 	//console.log('onDeviceAvailableInternal '+ a.deviceId);
 	//portal defaults to nav. 
-	a.controlMode=bm.MODE_NAVIGATION;
+	a.controlMode=bm.MODE_GAMEPAD;
 	
 	for(var i=0;i<bm.da.length;i++)
 	{
@@ -465,29 +479,49 @@ bm.enableTouch=function(a,b,e){setTimeout(function(){document.getElementById("br
 //bm.getHeight=function(){return window.parent.passingObj!==void 0&&window.parent.passingObj.height!==void 0?window.parent.passingObj.height:-1};
 //bm.getFullscreen=function(){return window.parent.passingObj!==void 0&&window.parent.passingObj.fullScreen!==void 0?window.parent.passingObj.fullScreen:false};
 
-var pingCBIntervals = {},
+var pingCBInterval,
     perDeviceAttributes = {},
     doPings = false;
+
+bm.doPingTrick = function(_doPings){
+  // Early out if there is no change
+  if(_doPings==doPings){
+    return;
+  }
+  doPings = _doPings;
+  
+  if(doPings){
+    pingCBInterval = setInterval(function(){
+        bm.setNavMode();
+    },16);
+  } else {
+    clearInterval(pingCBInterval);
+  }
+}
 
 bm.onDeviceConnected(function(device){
   perDeviceAttributes[device.deviceId] = {
     hackForOldNavEventsEnabled: false
   };
 
+/*
   if(doPings){
     pingCBIntervals[device.deviceId] = setInterval(function(){
-//        bm.setNavMode();
-      bm.setGamepadMode();
+        bm.setNavMode();
     },16);
-  }  
+  }
+*/  
 });
 bm.onDeviceDisconnected(function(device){
   delete perDeviceAttributes[device.deviceId];
 
+/*
   if(doPings){
-    clearInterval(pingCBIntervals[device.deviceId]);
-    pingCBIntervals[device.deviceId] = undefined;
+    pingCBIntervals[device.deviceId] = setInterval(function(){
+        bm.setNavMode();
+    },16);
   }
+*/
 });
 
 
