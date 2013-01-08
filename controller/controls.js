@@ -198,6 +198,17 @@ bm.onDeviceAvailable(function(device){
 	return device;
 });
 
+// Show/Hide slot color based on if anyone is connected
+function updateSlotVisibility(){
+  if(bm.getControllerCount()==0){
+    $('#canvas2').stop(true,true).fadeIn();
+  } else {
+    $('#canvas2').stop(true,true).fadeOut();
+  }
+}
+bm.onDeviceConnected(updateSlotVisibility);
+bm.onDeviceDisconnected(updateSlotVisibility);
+
 var buttonCount = {
     left:   0,
     right:  0,
